@@ -1,47 +1,29 @@
-# Getting Started with Create React App
+# Component Practice
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+항해99 리액트 3차 과제
+[배포링크](https://vjiji.github.io/react-prac3/)
 
-## Available Scripts
+## 컴포넌트 구조
 
-In the project directory, you can run:
+1. App.js : 각각의 Feature컴포넌트를 렌더링하는 메인 페이지
+2. components
+   - common : 재사용 가능한 Button, Input, Modal, Select 컴포넌트
+   - features : 메인페이지 내 각 요소를 기능 단위로 묶은 컴포넌트
+   - layout : features 컴포넌트를 렌더링할 때 적용되는 레이아웃 컴포넌트
+3. utils : 프로젝트에 사용되는 함수
+4. GlobalStyle : 프로젝트에서 공통으로 사용할 수 있는 스타일
 
-### `yarn start`
+## 질문
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. feeatures/Modals.tsx
+- 모달의 각각 UI가 다르고, 앞으로도 다양할 수 있을 것 이라고 생각해서 모달 UI는 필요할 때 직접 만들고, 백그라운드만 공통으로 받을 수 있도록 했습니다. 이 접근이 맞을까요?
+- useState 훅을 Modal컴포넌트 안에서 사용하고 싶어 고민했는데, 부모 컴포넌트에서 렌더링되는 모달 안에 함수를 전달할 방법을 찾지 못했습니다. 혹시 방법이 있을지 궁금합니다.
+- 컴포넌트의 로직과 렌더링 분리를 위해 커스텀 훅을 사용했는데, 그 중에서 handleModalOpen 함수는 해당 컴포넌트에서 관심사가 큰 것 같아 훅에서 선언하지 않고 Modals컴포넌트에서 선언했습니다. 이런 방법은 어떻게 생각하실지 궁금합니다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+2. features/button.jsx
+- overview : ishidden을 State로 선언해서 true인지 false인지 판별한 후 true라면 ishidden을 적용하는 방식으로 구현하였는데, 더 효율적인 방법이 있는지 궁금합니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-# react-prac3
+3. common/Button.jsx
+- styled-component : switch문으로 요소 하나하나를 검사해서 조건별로 styled을 적용하는 방법을 사용했는데 다른 방법이 있을까요?
